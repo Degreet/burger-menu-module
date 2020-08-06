@@ -1,0 +1,41 @@
+aside {
+    background: #525252;
+    position: fixed;
+    top: 0;
+    left: -20%;
+    bottom: 0;
+    width: 20%;
+    padding: 40px;
+    transition: .6s;
+}
+
+aside.active {
+    left: 0;
+}
+
+aside .logo {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 30px;
+    margin-top: 35px;
+}
+
+aside ul {
+    margin-top: 25px;
+    list-style: none;
+}
+
+aside ul li {
+    margin-top: 8px;
+}
+
+aside ul li a {
+    text-decoration: none;
+    color: #dbdbdb;
+    transition: .3s;
+}
+
+aside ul li a:hover {
+    color: #91e791;
+}
