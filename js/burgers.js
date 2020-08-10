@@ -18,8 +18,9 @@ function makeBurgerMenu(...args) {
         menuSelector = `.${menu.className}`
         menu.innerHTML = /*html*/`
             <a href="/" class="logo">Burger Menu</a>
-            <ul>${links.map(link => /*html*/`<li><a href="${links[link]}">${link}</a></li>`).join('')}</ul>
+            <ul>${links.map(buildLink).join('')}</ul>
         `
+        menu.addEventListener('click', handleMenuFn)
         document.body.append(menu)
     } else if (menuSelector) {
         var menu = document.querySelector(menuSelector)
@@ -76,5 +77,20 @@ function makeBurgerMenu(...args) {
         btn.addEventListener('click', menu.toggle)
     }
 
+    function handleMenuFn(e) {
+        if (e.target.dataset.i) {
+            links[+e.target.dataset.i][1]()
+            e.preventDefault()
+        }
+    }
+
     return menu
+}
+
+function buildLink([text, value], i) {
+    if (typeof value == 'function') {
+        return /*html*/`<li><a href="#" data-i="${i}">${text}</a></li>`
+    } else {
+        return /*html*/`<li><a href="${value}">${text}</a></li>`
+    }
 }

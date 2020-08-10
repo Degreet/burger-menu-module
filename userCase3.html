@@ -11,17 +11,17 @@
 
   <script>
     const burgerOptions = {side: 'left', speed: 200}
-    const burgerItems = {
-      "Home": '#',
-      "Products": '#',
-      "Support": openSupportPane,
-      "About Us": '#',
-      "Contacts": '#',
-    }
+    const burgerItems = [
+      ["Home", '#'],
+      ["Products", '#'],
+      ["Support", openSupportPane],
+      ["About Us", '#'],
+      ["Contacts", '#']
+    ]
     function openSupportPane() {
       console.log('support pane opened')
     }
-    const burgerMenu = makeBurgerMenu('#burgerBtn', burgerOptions)
+    const burgerMenu = makeBurgerMenu('#burgerBtn', burgerItems, burgerOptions)
   </script>
 </body>
 </html>
